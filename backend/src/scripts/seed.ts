@@ -350,8 +350,7 @@ const seedDatabase = async () => {
       3. Verify if DHCP pool is exhausted. Check IP address allocations under scope.
       4. Examine if there is RF signal interference. Check Channel overlaps (2.4GHz vs 5GHz configuration).
       5. Restart the target Access Point interface from the Cisco wireless network controller console.
-    `;
-    await RAGService.ingestDocument(docWiFi._id as string, docWiFi.title, wifiContent);
+    await RAGService.ingestDocument(docWiFi.id, docWiFi.title, wifiContent);
 
     const docCCTV = await KnowledgeDocument.create({
       title: 'CCTV Camera Power & Stream Loss SOP',
@@ -368,7 +367,7 @@ const seedDatabase = async () => {
       4. If ping succeeds but stream fails, log in to the camera web panel and verify RTSP credentials.
       5. If cable length exceeds 100 meters, signal attenuation might degrade feeds. Install a PoE repeater.
     `;
-    await RAGService.ingestDocument(docCCTV._id as string, docCCTV.title, cctvContent);
+    await RAGService.ingestDocument(docCCTV.id, docCCTV.title, cctvContent);
 
     console.log('Database Seeding Completed successfully.');
     process.exit(0);

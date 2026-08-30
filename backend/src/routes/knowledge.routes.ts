@@ -54,7 +54,7 @@ router.post('/', protect, restrictToRole('Super Admin', 'IT Manager'), async (re
     });
 
     // Run background ingestion to chunk and embed
-    await RAGService.ingestDocument(doc._id as string, title, content);
+    await RAGService.ingestDocument(doc.id, title, content);
 
     res.status(201).json({
       success: true,
