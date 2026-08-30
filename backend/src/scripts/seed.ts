@@ -350,6 +350,7 @@ const seedDatabase = async () => {
       3. Verify if DHCP pool is exhausted. Check IP address allocations under scope.
       4. Examine if there is RF signal interference. Check Channel overlaps (2.4GHz vs 5GHz configuration).
       5. Restart the target Access Point interface from the Cisco wireless network controller console.
+    `;
     await RAGService.ingestDocument(docWiFi.id, docWiFi.title, wifiContent);
 
     const docCCTV = await KnowledgeDocument.create({
